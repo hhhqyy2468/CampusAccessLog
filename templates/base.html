@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>校园出入登记管理系统</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/checkin_css.css">
+    <link rel="stylesheet" href="../static/css/user_management.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="main-container">
+        <div class="header">
+            <p>校园出入登记管理系统</p>
+            {% if session.username %}
+                <span class="admin_name">管理员&nbsp;&nbsp;{{ session.username }}</span>
+                <div class="nav-menu">
+                    <span>{{ session.username }}</span>
+                    <div class="nav-menu-content">
+                        <a href="/logout">退出登录</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="nav-menu">
+                    <span>登录|注册</span>
+                    <div class="nav-menu-content">
+                        <a href="/login">登录</a>
+                        <a href="/register">注册</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="center">
+            <ul>
+                <li><a href="/">首页</a></li>
+                {% if session.username %}
+                    <li><a href="/checkin_management">信息管理</a></li>
+                    <li><a href="/checkin">出入登记</a></li>
+                    <li><a href="/statistics">数据统计</a></li>
+                {% else %}
+                    <li><a href="javascript:void(0)" onclick="showLoginAlert()">信息管理</a></li>
+                    <li><a href="javascript:void(0)" onclick="showLoginAlert()">出入登记</a></li>
+                    <li><a href="javascript:void(0)" onclick="showLoginAlert()">数据统计</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="content-wrapper">
+            {% block content %}{% endblock %}
+        </div>
+        <footer>
+            <p>&copy信息工程学院</p>
+            <p>设计者：胡浩宇</p>
+            <p>学号：22013410080</p>
+            <p>联系电话：17528309107</p>
+        </footer>
+    </div>
+    <script>
+    function showLoginAlert() {
+        alert('请先登录后再访问！');
+        window.location.href = '/login';
+    }
+    </script>
+</body>
+
+</html>

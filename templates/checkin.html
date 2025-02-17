@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="checkin-container">
+    <h2>校园出入登记</h2>
+    <form action="/checkin" method="POST" class="checkin-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label>姓名</label>
+                <input type="text" name="name" required placeholder="请输入姓名">
+            </div>
+            <div class="form-group">
+                <label>学院</label>
+                <input type="text" name="college" required placeholder="请输入学院">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>学号</label>
+                <input type="text" name="student_id" required placeholder="请输入学号">
+            </div>
+            <div class="form-group">
+                <label>电话</label>
+                <input type="tel" name="phone" required placeholder="请输入电话">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>辅导员</label>
+                <input type="text" name="counselor_name" required placeholder="请输入辅导员姓名">
+            </div>
+            <div class="form-group">
+                <label>备注</label>
+                <input type="text" name="remark" required placeholder="请输入备注信息">
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="submit-btn">提交登记</button>
+            <button type="reset" class="cancel-btn">重置信息</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

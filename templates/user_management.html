@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="user-container">
+    <h2>用户信息管理</h2>
+    <table class="user-table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>账号</th>
+                <th>密码</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ loop.index + (page - 1) * per_page }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.account }}</td>
+                <td>{{ user.password }}</td>
+                <td class="action-buttons">
+                    <button class="edit-btn" onclick="editUser('{{ user.id }}', '{{ user.username }}', '{{ user.account }}', '{{ user.password }}')">修改</button>
+                    <button class="delete-btn" onclick="deleteUser('{{ user.id }}')">删除</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        {% if page > 1 %}
+        <a href="{{ url_for('user_management', page=page-1) }}">&laquo; 上一页</a>
+        {% endif %}
+        
+        {% for p in range(1, total_pages + 1) %}
+        <a href="{{ url_for('user_management', page=p) }}" 
+           {% if p == page %}class="active"{% endif %}>
+           {{ p }}
+        </a>
+        {% endfor %}
+        
+        {% if page < total_pages %}
+        <a href="{{ url_for('user_management', page=page+1) }}">下一页 &raquo;</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- 编辑用户弹窗 -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h3>修改用户信息</h3>
+        <form id="editForm" action="/user/edit" method="POST">
+            <input type="hidden" id="editUserId" name="id">
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" id="editUsername" name="username" required>
+            </div>
+            <div class="form-group">
+                <label>账号</label>
+                <input type="text" id="editAccount" name="account" required>
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input type="password" id="editPassword" name="password" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="submit-btn">保存</button>
+                <button type="button" class="cancel-btn" onclick="closeModal()">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function editUser(id, username, account, password) {
+    document.getElementById('editModal').style.display = 'block';
+    document.getElementById('editUserId').value = id;
+    document.getElementById('editUsername').value = username;
+    document.getElementById('editAccount').value = account;
+    document.getElementById('editPassword').value = password;
+}
+
+function deleteUser(id) {
+    if (confirm('确定要删除该用户吗？')) {
+        fetch(`/user/delete/${id}`, { method: 'DELETE' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('删除失败：' + data.message);
+                }
+            });
+    }
+}
+
+function closeModal() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('editModal')) {
+        closeModal();
+    }
+}
+</script>
+{% endblock %} 

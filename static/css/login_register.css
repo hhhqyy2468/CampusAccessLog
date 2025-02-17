@@ -1,0 +1,150 @@
+body {
+    background: #f8f4f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container, .register-container {
+    width: 400px;
+    height: 500px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(139, 107, 93, 0.08);
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-container h2, .register-container h2 {
+    text-align: center;
+    color: #6a4f4b;
+    margin-bottom: 35px;
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(139, 107, 93, 0.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #8B6B5D;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0d5d0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    background-color: #fdfbfa;
+    color: #6a4f4b;
+}
+
+.form-group input:hover {
+    border-color: #c5b0a6;
+    background-color: #fff;
+}
+
+.form-group input:focus {
+    border-color: #8B6B5D;
+    box-shadow: 0 0 12px rgba(139, 107, 93, 0.1);
+    outline: none;
+    background-color: #fff;
+}
+
+.form-group input::placeholder {
+    color: #baa89f;
+}
+
+.button-group {
+    margin-top: 35px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8B6B5D 0%, #6a4f4b 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(139, 107, 93, 0.15);
+    opacity: 0.95;
+}
+
+.submit-btn:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 107, 93, 0.2);
+}
+
+.switch-form {
+    margin-top: auto;
+    padding-top: 25px;
+    text-align: center;
+    color: #8B6B5D;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #6a4f4b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    margin-left: 5px;
+}
+
+.switch-form a:hover {
+    color: #8B6B5D;
+    text-decoration: underline;
+}
+
+/* 错误消息样式 */
+.error-message {
+    color: #d98c8c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-group input:invalid + .error-message {
+    display: block;
+}
+
+/* 响应式布局 */
+@media (max-width: 480px) {
+    .login-container, .register-container {
+        width: 85%;
+        margin: 20px;
+        padding: 25px;
+    }
+    
+    body {
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+}
+
+.login-container form, .register-container form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

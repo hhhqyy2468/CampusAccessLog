@@ -1,0 +1,265 @@
+/* 整体布局 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 头部样式 */
+.header {
+    background: linear-gradient(135deg, #6a4f4b 0%, #8B6B5D 100%);
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 70px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: "Microsoft YaHei", sans-serif;
+    padding: 5px 0;
+}
+
+
+/* 导航菜单样式 */
+.nav-menu {
+    position: relative;
+    display: inline-block;
+    margin-top: 18px;
+    margin-right: 20px;
+    padding-bottom: 15px;
+
+}
+.admin_name {
+    position: absolute;
+    right: 300px;
+}
+
+.nav-menu:hover .nav-menu-content {
+    display: block;
+}
+
+.nav-menu span {
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.nav-menu span:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+    color: #ffd700;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu-content {
+    display: none;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    background: #fff;
+    width: calc(100% - 2px);
+    min-width: 80px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    top: calc(100% - 7px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    overflow: hidden;
+
+}
+
+.nav-menu-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 50%;
+    transform: translateX(50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+
+.nav-menu-content a {
+    color: #333;
+    padding: 12px 0;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+    font-size: 15px;
+    position: relative;
+    background: #fff;
+    text-align: center;
+}
+
+.nav-menu-content a:hover {
+    background: linear-gradient(to right, #f8f8f8 0%, #fff 100%);
+    color: #8B6B5D;
+    padding: 12px 0;
+}
+
+.nav-menu-content a:first-child {
+    border-bottom: 1px solid #eee;
+}
+
+/* 添加这个新样式来解决菜单消失问题 */
+.nav-menu:hover .nav-menu-content,
+.nav-menu-content:hover {
+    display: block;
+}
+
+/* 左侧导航栏样式 */
+.center {
+    background: linear-gradient(180deg, #8B6B5D 0%, #6a4f4b 100%);
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    padding-top: 10px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.center ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.center li {
+
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+    margin: 2px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.center a {
+    color: #fff;
+}
+
+.center li:hover {
+    background: linear-gradient(to right, #5d4a44 0%, #7A5C4E 100%);
+    border-left-color: #ffd700;
+    padding-left: 25px;
+    color: #ffd700;
+}
+
+.center li:last-child {
+    border-bottom: none;
+}
+
+/* 页脚样式 */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 200px;
+    right: 0;
+    background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+    height: 35px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+    color: #555;
+    font-size: 15px;
+    white-space: nowrap;
+    height: 35px;
+    line-height: 35px;
+    transition: all 0.3s;
+}
+
+footer p:hover {
+    color: #333;
+    transform: translateY(-1px);
+}
+
+.content-wrapper {
+    margin: 70px 0 0 200px;
+    width: calc(100% - 200px);
+    padding: 20px 20px 55px;
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+}
+
+/* 修改统计表格容器样式 */
+.statistics-container {
+    width: 82%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.flash-message {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #f44336;
+    color: white;
+    z-index: 1000;
+    animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+.flash-message.error {
+    background-color: #f44336;
+}
+
+.flash-message.success {
+    background-color: #4CAF50;
+}

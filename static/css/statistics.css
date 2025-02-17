@@ -1,0 +1,103 @@
+.statistics-container {
+    width: 82%;
+    margin: 0 auto 35px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.statistics-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.statistics-table th, 
+.statistics-table td {
+    padding: 10px 6px;
+    text-align: center;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.statistics-table th:nth-child(1), 
+.statistics-table td:nth-child(1) {
+    width: 6%;
+}
+
+.statistics-table th:nth-child(2), 
+.statistics-table td:nth-child(2) {
+    width: 8%;
+}
+
+.statistics-table th:nth-child(3), 
+.statistics-table td:nth-child(3) {
+    width: 18%;
+}
+
+.statistics-table th:nth-child(4), 
+.statistics-table td:nth-child(4) {
+    width: 15%;
+}
+
+.statistics-table th:nth-child(5), 
+.statistics-table td:nth-child(5) {
+    width: 15%;
+}
+
+.statistics-table th:nth-child(6), 
+.statistics-table td:nth-child(6) {
+    width: 8%;
+}
+
+.statistics-table th:nth-child(7), 
+.statistics-table td:nth-child(7) {
+    width: 10%;
+}
+
+.statistics-table th:nth-child(8), 
+.statistics-table td:nth-child(8) {
+    width: 20%;
+}
+
+.statistics-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.statistics-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.pagination {
+    position: relative;
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #000;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 16px;
+    text-align: center;
+}
+
+.pagination a:hover {
+    background-color: #f5f5f5;
+}
+
+.pagination .active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+} 

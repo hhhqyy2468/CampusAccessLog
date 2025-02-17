@@ -1,0 +1,24 @@
+create table student_checkin
+(
+    id             int auto_increment
+        primary key,
+    name           text                               not null,
+    college        text                               not null,
+    student_id     char(11)                           not null,
+    phone          text                               null,
+    counselor_name text                               null,
+    remark         text                               null,
+    checkin_time   datetime default CURRENT_TIMESTAMP null
+);
+
+create table users
+(
+    id         int auto_increment
+        primary key,
+    username   text                                not null,
+    password   text                                not null,
+    account    varchar(11) charset utf8mb3         not null,
+    created_at timestamp default CURRENT_TIMESTAMP null,
+    constraint student_id
+        unique (account)
+);
